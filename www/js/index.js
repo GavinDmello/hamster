@@ -37,6 +37,23 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        setTimeout(function () {
+            if(navigator.geolocation) {
+                console.log('Navigator.geolocation: ', navigator.geolocation)
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log('Position: ', position);
+                })
+            }
+            else {
+                console.log('Geolocation not found');
+            }
+            if(navigator.compass) {
+                console.log('Compass1: ', navigator.compass)
+                navigator.compass.getCurrentHeading(function (heading) {
+                    console.log('Compass: ', heading);
+                })
+            }
+        }, 5000);
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
