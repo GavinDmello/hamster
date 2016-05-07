@@ -37,19 +37,18 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        setTimeout(function () {
-            if(navigator.geolocation) {
+        setTimeout(function() {
+            if (navigator.geolocation) {
                 console.log('Navigator.geolocation: ', navigator.geolocation)
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     console.log('Position: ', position);
                 })
-            }
-            else {
+            } else {
                 console.log('Geolocation not found');
             }
-            if(navigator.compass) {
+            if (navigator.compass) {
                 console.log('Compass1: ', navigator.compass)
-                navigator.compass.getCurrentHeading(function (heading) {
+                navigator.compass.getCurrentHeading(function(heading) {
                     console.log('Compass: ', heading);
                 })
             }
@@ -62,6 +61,15 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        navigator.camera.getPicture(app.cameraSuccess, app.cameraError);
+    },
+    cameraSuccess: function(imageData) {
+        //SEND image data to the server.
+        console.log("Camera success, Image Data", imageData)
+    },
+    cameraError: function() {
+        console.log("Camera error")
     }
 };
 
