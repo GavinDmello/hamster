@@ -37,7 +37,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        setTimeout(function() {
+        /*setTimeout(function() {
             if (navigator.geolocation) {
                 console.log('Navigator.geolocation: ', navigator.geolocation)
                 navigator.geolocation.getCurrentPosition(function(position) {
@@ -53,23 +53,15 @@ var app = {
                 })
             }
         }, 5000);
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-
-        navigator.camera.getPicture(app.cameraSuccess, app.cameraError);
+        navigator.camera.getPicture(app.cameraSuccess, app.cameraError);*/
     },
     cameraSuccess: function(imageData) {
         //SEND image data to the server.
-        console.log("Camera success, Image Data", imageData)
+        /*console.log("Camera success, Image Data", imageData)*/
     },
     cameraError: function() {
-        console.log("Camera error")
+        /*console.log("Camera error")*/
     }
 };
 
